@@ -1,0 +1,10 @@
+MY_IP 127.0.0.1
+MY_PORT 8888
+JIEBA_DIC_PATH /home/wuyijian/simhash/dict/jieba.dict.utf8
+JIEBA_MODEL_PATH /home/wuyijian/simhash/dict/hmm_model.utf8
+JIEBA_STOPWORDS_PATH /home/wuyijian/simhash/dict/stop_words.utf8
+JIEBA_IDFDIC_PATH /home/wuyijian/simhash/dict/idf.utf8
+MY_INDEX_PATH /home/wuyijian/searchengin/local/index.dat
+MY_LIBPAGE_PATH /home/wuyijian/searchengin/local/page.lib
+MY_OFFSET_PATH /home/wuyijian/searchengin/local/offset.lib
+
