@@ -1,10 +1,3 @@
- ///
- /// @file    EpollPoller.h
- /// @author  lemon(haohb13@gmail.com)
- /// @date    2015-11-06 16:12:11
- ///
-
-
 #ifndef _EPOLLPOLLER_H
 #define _EPOLLPOLLER_H
 
