@@ -1,9 +1,3 @@
- ///
- /// @file    SocketIO.cc
- /// @author  lemon(haohb13@gmail.com)
- /// @date    2015-11-05 16:14:19
- ///
-
 #include "SocketIO.h"
 #include <unistd.h>
 #include <string.h>
@@ -30,7 +24,7 @@ size_t SocketIO::readn(char * buf, size_t count)
 		int nread = ::read(sockfd_, pbuf, nleft);
 		if(-1 == nread)
 		{
-			if(errno == EINTR)//ºöÂÔµôÖĞ¶ÏĞÅºÅ
+			if(errno == EINTR)//ÂºÃ¶Ã‚Ã”ÂµÃ´Ã–ÃÂ¶ÃÃÃ…ÂºÃ…
 				continue;
 			return EXIT_FAILURE;
 		}
@@ -85,7 +79,7 @@ size_t SocketIO::readline(char * buf, size_t maxlen)
 		if(nread <= 0)
 			return nread;
 
-		//¼ì²é'\n'
+		//Â¼Ã¬Â²Ã©'\n'
 		for(size_t idx = 0; idx != nread; ++idx)
 		{
 			if(pbuf[idx] == '\n')
