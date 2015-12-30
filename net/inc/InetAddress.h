@@ -1,10 +1,3 @@
- ///
- /// @file    InetAddress.h
- /// @author  lemon(haohb13@gmail.com)
- /// @date    2015-11-04 17:08:29
- ///
-
-
 #ifndef _INETADDRESS_H
 #define _INETADDRESS_H
 
