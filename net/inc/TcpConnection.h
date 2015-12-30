@@ -1,9 +1,3 @@
- ///
- /// @file    TcpConnection.h
- /// @author  lemon(haohb13@gmail.com)
- /// @date    2015-11-05 16:59:04
- ///
-
 #ifndef _TCPCONNCETION_H
 #define _TCPCONNCETION_H
 
