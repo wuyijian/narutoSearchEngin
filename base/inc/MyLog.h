@@ -1,9 +1,3 @@
- ///
- /// @file    MyLog.h
- /// @author  lemon(haohb13@gmail.com)
- /// @date    2015-10-13 09:41:25
- ///
-
 
 #ifndef __MY_LOG_H__
 #define __MY_LOG_H__
