@@ -1,10 +1,3 @@
- ///
- /// @file    MyLog.cc
- /// @author  lemon(haohb13@gmail.com)
- /// @date    2015-10-13 09:56:26
- ///
-
-
 #include "MyLog.h"
 #include <iostream>
 #include <log4cpp/PatternLayout.hh>
