@@ -24,20 +24,20 @@
 ### 项目架构
 
 #### 离线索引模块
-    数据结构：{string : {ID : weight},{ID : weight}...},weight（权重）是通过TD-IDF算法并归一后的权重
-    存储结构：用redis 的set存储：结构为  key:string  set :string(string 需要解析 是ID 和 weight组成的字符串) 
+    * 数据结构：{string : {ID : weight},{ID : weight}...},weight（权重）是通过TD-IDF算法并归一后的权重
+    * 存储结构：用redis 的set存储：结构为  key:string  set :string(string 需要解析 是ID 和 weight组成的字符串) 
 #### 查询模块
-    网页排序：BM25算法 + vsm   之前采用空间向量模型和BM25算法结合（两个算法本来就有共通的地方）增加一些定制性
-    线程模型：task threadpool  任务队列
+    * 网页排序：BM25算法 + vsm   之前采用空间向量模型和BM25算法结合（两个算法本来就有共通的地方）增加一些定制性
+    * 线程模型：task threadpool  任务队列
 #### 缓存模块
-    内存实现：利用unordered_map 作为缓存数据结构，每个线程维护一个缓存，线程池维护一个缓存，利用timerfd+poll实现缓存动态更新和存盘
-    redis实现：利用redis的string数据结构来存储缓存，缓存内容为封装好的json数组
+    * 内存实现：利用unordered_map 作为缓存数据结构，每个线程维护一个缓存，线程池维护一个缓存，利用timerfd+poll实现缓存动态更新和存盘
+    * redis实现：利用redis的string数据结构来存储缓存，缓存内容为封装好的json数组
 #### 网络库模块
-    网络模型：reactor模式，epoll + threadpool的实现i/o线程和计算线程分离
+    * 网络模型：reactor模式，epoll + threadpool的实现i/o线程和计算线程分离
 ### 后期优化方向
-    加入推荐算法
-    利用Mysql存储网页库文件和索引文件
-    网络库采用muduo网络库的模型 实现 one loop per thread,实现更高的并发量
-    redis缓存相应参数的调整
+    * 加入推荐算法
+    * 利用Mysql存储网页库文件和索引文件
+    * 网络库采用muduo网络库的模型 实现 one loop per thread,实现更高的并发量
+    * redis缓存相应参数的调整
 
 
