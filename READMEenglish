@@ -1,0 +1,33 @@
+Full-text search engine written in C++
+Background of the project
+Now we can easily search a lot of information on the Internet. Some websites often have a lot of excellent content, but the lack of a flexible and efficient search engine makes the value of this website not well reflected, based on the timeline. From another point of view, the recommendation of the tag or the tag actually ignores the subjective initiative of the user search.
+
+The general search engine can't solve this problem: First, there can't be targeted vertical search, the content crawling and indexing is simple and rude, unable to get structured data, can't see hidden content attributes; secondly, the general search engine pair The ordering of content cannot be customized, and it is not real-time enough to be an integral part of the website community.
+
+If we can solve these two problems, then we believe that the value of the website content will be better reflected, and users will be more and more adapted to better access the resources they need through the on-site search engine.
+
+This project is an attempt to achieve such an ideal.
+
+Functional review
+Use redis to store inverted index and web library (both in memory) for high-speed search
+Use redis to build the cache. If the cache hits directly, the query speed increases by nearly 100 times.
+Support Chinese word segmentation (cppjieba)
+Support for persistent storage (redis)
+Use log4cpp as the log system
+Project structure
+Offline indexing module
+Data structure: {string : {ID : weight}, {ID : weight}...}, weight (weight) is the weight of the TD-IDF algorithm and normalized
+Storage structure: store with redis: structure is key: string set :string (string needs to be parsed as a string of ID and weight)
+Query module
+Web page sorting: BM25 algorithm + vsm before the combination of space vector model and BM25 algorithm (the two algorithms have a common place) to increase some customization
+Thread model: task threadpool task queue
+Cache module
+Memory implementation: use unordered_map as the cache data structure, each thread maintains a cache, the thread pool maintains a cache, and uses timerfd+poll to implement cache dynamic update and save
+Redis implementation: use redis string data structure to store the cache, the cache content is a packaged json array
+Network library module
+Network model: reactor mode, epoll + threadpool implementation i / o thread and computing thread separation
+Late optimization direction
+Add recommendation algorithm
+Use Mysql to store web page files and index files
+The network library implements one loop per thread using the model of the muduo network library to achieve higher concurrency
+Redis cache adjustment of corresponding parameters
